@@ -2,26 +2,24 @@
 This repo aims to speed up the process of creating a private Shopify app using Python on Google App Engine. It leverages webapp2 for simple routing, and has functions to GET and POST to your Shopify store with JSON.
 
 ## Getting Started
-### App Engine Instructions
-
-1. Go to https://console.developers.google.com/ and register for an account. Create a new project, and copy its ID (this will looks something like my-project).
-1. Open app.yaml, paste the ID to replace the XXXs under application.
-1. Download and install https://cloud.google.com/appengine/downloads
-1. Open the launcher you installed, and go to File > Add existing application
-1. Click Run, then Browse
 
 ### Hooking up your Shopify Store
+1. Update the YOUR_SHOP portion of this line in app.yaml:
+
+	SHOP_URL = "https://YOUR_SHOP.myshopify.com/admin/"
 
 1. Log in to your store, and create a new Private App under Apps. Copy the key and password, and place them in app.yaml:
 
 	SHOPIFY_API_KEY = 'xxxxxx'
 	SHOPIFY_API_PASSWORD = 'xxxxxx'
 
-2. Then Update the YOUR_SHOP portion of this line in app.yaml:
+### App Engine Instructions
 
-	SHOP_URL = "https://YOUR_SHOP.myshopify.com/admin/"
-
-3. Save main.py, and refresh the page in your browser. The app will pull up to 25 of your products from the store and display their titles.
+1. Go to https://console.developers.google.com/ and register for an account. Create a new project, and copy its ID (this will looks something like my-project).
+1. Open app.yaml, paste the ID to replace the XXXs under application.
+1. Download and install https://cloud.google.com/appengine/downloads
+1. Open the launcher you installed, and go to File > Add existing application
+1. Click Run, then Browse. The app will pull up to 25 of your products from the store and display their titles.
 
 ### Main Functions
 Two functions have been built to interact with your store: *shopPOST* and *shopGET*. These both take a Python Dict object, make the API call to a json endpoint, and return the result.
