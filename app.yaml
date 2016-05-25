@@ -1,0 +1,25 @@
+application: xxxxxx
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: true
+
+handlers:
+- url: /stylesheets
+  static_dir: stylesheets
+
+- url: /.*
+  script: main.application
+
+libraries:
+- name: webapp2
+  version: latest
+- name: jinja2
+  version: latest
+- name: ssl
+  version: latest
+
+env_variables:
+  SHOPIFY_API_KEY: 'xxxxxx'
+  SHOPIFY_API_PASSWORD: 'xxxxxx'
+  SHOP_URL: 'https://YOUR_SHOP.myshopify.com/admin/'
